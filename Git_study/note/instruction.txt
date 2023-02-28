@@ -1,0 +1,67 @@
+#git学习笔记
+
+#初始化一个git本地仓库
+git init
+
+#把在暂存区修改或新增的文件添加到工作区
+git add . 
+git add [filename]
+
+#把在工作区的文件添加到本地仓库并说明操作
+git commit -m"your discription"
+
+#查看文件的状态
+git status
+
+#查看文件的日志
+git log ...
+	#设计的一个别名
+git-log
+
+#创建分支
+git branch 分支名
+
+#查看分支
+git branch
+
+#更改当前分支名
+git branch -M 分支名
+
+#切换分支
+git checkout 分支名
+
+#切换并创建分支
+git checkout -b 分支名
+
+#合并分支--把该分支合并到当前分支
+git merge 分支名
+
+#删除分支
+git branch -d 分支名
+git branch -D 分支名
+# D为强制删除
+
+#绑定远程仓库
+git remote add 名字 远程仓库ssh地址
+
+#查看绑定的远程仓库
+git remote
+
+#克隆远程仓库
+git clone 远程仓库ssh地址 名字
+如果不取名字则默认生成地址结尾xxx.git文件名
+
+#推送到远程仓库
+git push origin main:main
+
+#绑定分支--当前分支与远程分支关联
+git push --set-upstream origin main
+
+#从远程仓库抓取
+git fetch origin 分支名
+fetch只抓取不合并，如果不指定远程仓库名和分支名则抓取所有分支
+git pull origin 分支名
+等同于fetch+merge，如果不指定远程仓库名和分支名则抓取并更新当前分支
+
+
+
