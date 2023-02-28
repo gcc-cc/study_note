@@ -53,6 +53,7 @@ git clone 远程仓库ssh地址 名字
 
 #推送到远程仓库
 git push origin main:main
+git push origin -u main
 
 #绑定分支--当前分支与远程分支关联
 git push --set-upstream origin main
@@ -62,6 +63,5 @@ git fetch origin 分支名
 fetch只抓取不合并，如果不指定远程仓库名和分支名则抓取所有分支
 git pull origin 分支名
 等同于fetch+merge，如果不指定远程仓库名和分支名则抓取并更新当前分支
-
 
 
