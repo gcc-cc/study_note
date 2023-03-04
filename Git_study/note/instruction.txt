@@ -1,5 +1,6 @@
 #git学习笔记
 
+
 #初始化一个git本地仓库
 git init
 
@@ -9,12 +10,32 @@ git add [filename]
 
 #把在工作区的文件添加到本地仓库并说明操作
 git commit -m"your discription"
+git commit -s -------这会再提交说明中自动加上包含提交者姓名和邮件地址的签名标识。
+
+#修改最近的提交记录
+git commit --amend"...."
+
+#修改名字和邮箱
+git commit --amend --author='Your Name <you@example.com>'
+
+#git commit 后接的参数
+git commit --amend --allow-empty --reset-author
+参数 --amend 是对刚刚的提交进行修补，这样就可以改正前面的提交中的错误的用户名和邮件地址，而不会产生另外的新提交
+参数 --allow-empty 使得空白提交被允许。之所以这里必须使用此参数是因为要进行的修补提交实际上是一个空白提交。
+参数 --reset-author 的含义是将Author(作者)的ID同步修改，否则只会影响提交者(Commit)的ID。使用此参数也会重置AuthorData信息。
+
+#查看修改后的文件与版本库中的文件的差异。
+git diff
+
 
 #查看文件的状态
 git status
+git status -s 显示精简格式的状态输出
+git status或者 git diff 是通过时间戳、文件长度等信息进行比较，因此比通过文件内容比较要快得多，所以Git这样的实现方式可以让工作区状态扫描更快速地执行，这也是Git高效的原因之一。
 
 #查看文件的日志
 git log ...
+git log --pretty=fuller
 	#设计的一个别名
 git-log
 
@@ -29,6 +50,9 @@ git branch -M 分支名
 
 #切换分支
 git checkout 分支名
+
+##撤销工作区中文件尚未提交的修改
+git checkout -- 文件名
 
 #切换并创建分支
 git checkout -b 分支名
